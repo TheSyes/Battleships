@@ -35,7 +35,7 @@ class Board {
                 var y = element.y;
             }
 
-            ships.push(new Cruser("Aircraft Carrier", 5, 600, 300,0));
+            ships.push(new Cruser(600, 300));
 
             ships[0].x = x+25;
             ships[0].y = y+25;

@@ -13,6 +13,6 @@ function draw() {
   board.placeShips(); //call function if ship is selected on sidebar
 }
 
-function mouseWheel(event){
-  return event.delta;
-}
+// function mouseWheel(event){
+//   return event.delta;
+// }
