@@ -10,9 +10,7 @@ function setup() {
 function draw() {
   background(140);
   board.show();
-  board.placeShips();
-
-
+  board.placeShips(); //call function if ship is selected on sidebar
 }
 
 function mouseWheel(event){

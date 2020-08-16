@@ -7,10 +7,6 @@ class Cruser{
         this.direction = 25;
     }
 
-    mouseWheel(event){
-        this.direction = event.delta;
-    }
-
     showShip(){
         fill(0);
         if(this.direction< 0){
