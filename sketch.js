@@ -1,5 +1,5 @@
 function setup() {
-  createCanvas(displayWidth, displayHeight);
+  createCanvas(displayWidth-50, displayHeight-200);
   board = new Board(50, 100, 100);
   board.buildBoard();
 }

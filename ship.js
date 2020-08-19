@@ -1,5 +1,7 @@
 let newX;
 let newY;
+let direction = 0;
+let increment = 0;
 
 class Ship {
     constructor(name, size) {
@@ -7,7 +9,7 @@ class Ship {
         this.size = size;
         this.x = 0;
         this.y = 0;
-        this.direction = 0;
+        this.kek = 0;
 
         this.shipParts = [];
         this.createBody();
@@ -21,11 +23,14 @@ class Ship {
 
     drawBody(){
         this.setPos(); // weiß nicht ob das hier sinn macht
+
+        push();
+        translate(this.x,this.y);
         ellipseMode(CORNER);
-        noFill();
-        rect(this.x-15, this.y-15, 30, 45*this.size);
-        fill(0);
-        ellipse(this.x-15, this.y-15, 30, 45*this.size); 
+        angleMode(DEGREES);
+        rotate(direction);
+        ellipse(-15, -15, 30, 45*this.size);
+        pop();
     }
 
     createBody() {
@@ -35,14 +40,14 @@ class Ship {
     }
 
     rotate() {
-        if (this.direction == 0) {
-            this.direction = 1;
+        if (this.kek == 0) {
+            this.kek = 1;
             for (var i = 0; i < this.size; i++) {
                 this.shipParts[i].relX = i;
                 this.shipParts[i].relY = 0;
             }
         }else {
-            this.direction = 0;
+            this.kek = 0;
             for (var i = 0; i < this.size; i++) {
                 this.shipParts[i].relX = 0;
                 this.shipParts[i].relY = i;
@@ -54,10 +59,37 @@ class Ship {
 function mouseClicked(event) {
     newX=highX;
     newY=highY;
-    //print(newX + " " +newY);
 }
 
 function mouseWheel(event) {
-    print(event.delta);
-    return event.delta;
+    if(event.delta < 0){
+        increment = increment +1;
+    } else if (event.delta > 0){
+        increment = increment -1;
+    }
+
+    //this shit gay yo
+    if(increment > 3){
+        increment = 0;
+    }
+    if(increment < 0){
+        increment = 3;
+    }
+
+    print(increment);
+
+    switch(increment){
+        case 0:
+            direction = 0;
+            break;
+        case 1:
+            direction = 90;
+            break;
+        case 2:
+            direction = 180;
+            break;
+        case 3:
+            direction = 270;
+            break;
+    }
 }
