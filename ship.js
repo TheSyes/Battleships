@@ -76,8 +76,6 @@ function mouseWheel(event) {
         increment = 3;
     }
 
-    print(increment);
-
     switch(increment){
         case 0:
             direction = 0;
